@@ -1,0 +1,139 @@
+
+    <form class="container" onsubmit="checkout(cart)">
+        <div class="cocktails" id="column">
+            <h4>Cocktails</h4>
+
+            <input type="checkbox" onclick="addToCart(id)" id="Moscow Mule" name="moscowMule" value="moscowMule">
+            <label for="moscowmule">Moscow Mule</label>
+            <br />
+            <input type="checkbox" onclick="addToCart(id)" id="Vodka Soda" name="vodkaSoda" value="vodkaSoda">
+            <label for="vodkasoda">Vodka Soda</label>
+            <br />
+            <input type="checkbox" onclick="addToCart(id)" id="Gin and Tonic" name="ginTonic" value="ginTonic">
+            <label for="gintonic">Gin and Tonic</label>
+            <br />
+            <input type="checkbox" onclick="addToCart(id)" id="Mojito" name="mojito" value="mojito">
+            <label for="mojito">Mojito</label>
+            <br />
+            <input type="checkbox" onclick="addToCart(id)" id="Margarita" name="margarita" value="margarita">
+            <label for="margarita">Margarita</label>
+            <br />
+            <input type="checkbox" onclick="addToCart(id)" id="Daiquiri" name="daiquiri" value="daiquiri">
+            <label for="daiquiri">Daiquiri</label>
+            <br />
+            <input type="checkbox" onclick="addToCart(id)" id="Whiskey Sour" name="whiskeySour" value="whiskeySour">
+            <label for="whiskeySour">Whiskey Sour</label>
+            <button type="submit">Submit Order</button>
+        </div>
+        <div class="beers" id="column">
+            <h4>Beers</h4>
+            <input type="checkbox" onclick="addToCart(id)" id="Blue Moon" name="blueMoon" value="blueMoon">
+            <label for="blueMoon">Blue Moon</label>
+            <br />
+            <input type="checkbox" onclick="addToCart(id)" id="Budweiser" name="budweiser" value="budweiser">
+            <label for="budweiser">Budweiser</label>
+            <br />
+            <input type="checkbox" onclick="addToCart(id)" id="Michelob Ultra" name="micUltra" value="micUltra">
+            <label for="micUltra">Michelob Ultra</label>
+            <br />
+            <input type="checkbox" onclick="addToCart(id)" id="Yuengling" name="yuengling" value="yuengling">
+            <label for="yuengling">Yuengling</label>
+            <br />
+            <input type="checkbox" onclick="addToCart(id)" id="Shock Top" name="shockTop" value="shockTop">
+            <label for="shockTop">Shock Top</label>
+            <br />
+            <input type="checkbox" onclick="addToCart(id)" id="=Samual Adams" name="samAdams" value="samAdams">
+            <label for="samAdams">Samuel Adams</label>
+            <br />
+            <input type="checkbox" onclick="addToCart(id)" id="Modelo" name="modelo" value="modelo">
+            <label for="modelo">Modelo</label>
+        </div>
+        <div class="wines" id="column">
+            <h4>Wines</h4>
+            <input type="checkbox" onclick="addToCart(id)" id="Moselland Riesling" name="mosellandRiesling" value="mosellandRiesling">
+            <label for="mosellandRiesling">Moselland Riesling</label>
+            <br />
+            <input type="checkbox" onclick="addToCart(id)" id="Blackstone Merlot" name="blackstoneMerlot" value="blackstoneMerlot">
+            <label for="blackstoneMerlot">Blackstone Merlot</label>
+            <br />
+            <input type="checkbox" onclick="addToCart(id)" id="Maison no. 9 Rose" name="maisonRose" value="maisonRose">
+            <label for="maisonRose">Maison no. 9 Rose</label>
+            <br />
+            <input type="checkbox" onclick="addToCart(id)" id="Chateau Chardonnay" name="chateuChardonnay" value="chateuChardonnay">
+            <label for="chateuChardonnay">Chateau Chardonnay</label>
+            <br />
+            <input type="checkbox" onclick="addToCart(id)" id="Meiomi Pinot Noir" name="meiomiPinot" value="meiomiPinot">
+            <label for="meiomiPinot">Meiomi Pinot Noir</label>
+            <br />
+            <input type="checkbox" onclick="addToCart(id)" id="Barefoot Merlot" name="barefootMerlot" value="barefootMerlot">
+            <label for="barefootMerlot">Barefoot Merlot</label>
+            <br />
+            <input type="checkbox" onclick="addToCart(id)" id="Barefoot Moscato" name="barefootMoscato" value="barefootMoscato">
+            <label for="barefootMoscato">Barefoot Moscato</label>
+        </div>
+        <div class="cart" id="column">
+            <h4>Your Cart:</h4>
+            <br />
+            <p id="cartList"></p>
+            <p id="bought"></p>
+            <script>
+                cart = (typeof cart != 'undefined' && cart instanceof Array) ? cart : []
+                function addToCart(id) {
+                    cart.push(id);
+                    var cartItems;
+                    var element = document.getElementById(id).checked = false;
+                    for (var i = 0; i < cart.length; i++) {
+                        
+                    }
+                    cartItems = cart.toString();
+                    cartItems = cartItems.replaceAll(",", "<br />");
+                    document.getElementById("cartList").innerHTML = cartItems;
+                }
+                
+                
+            </script>
+        </div>
+    </form>
+
+<script>
+    function checkout(cart) {
+        console.log(cart[0]);
+        cartItems = cart.toString();
+        cartItems = cartItems.replaceAll(",", "<br />");
+        document.getElementById("bought").innerHTML = cartItems;
+        return false;
+    }
+</script>
+<style scoped>
+    .column::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+   
+    .cocktails {
+        float: left;
+        width: 20%;
+    }
+    .beers {
+        float: left;
+        width: 20%;
+    }
+
+    .wines {
+        float: left;
+        width: 20%;
+    }
+    button{
+        float: left;
+        position:relative;
+    }
+    .cart{
+        float:right;
+        width: 200px;
+        border:5px;
+        border-color:gray;
+        border-style: ridge;
+        text-align:center;
+    }
+</style>
